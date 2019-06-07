@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+{% if got == True %}
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th scope="col">Key</th>
+            <th scope="col">Value</th>
+        </tr>
+    </thead>
+    <tbody>
+
+        {% for item in data %}
+        <tr>
+            <td>{{ item }}</td>
+            <td>{{ data[item] }}</td>
+        </tr>
+        {% endfor %}
+
+    </tbody>
+</table>
+
+{% endif %}
+
+{% if got == False %}
+
+    <div class="jumbotron">
+        <h3 class="display-5">Sorry, no data found!</h3>
+    </div>
+
+{% endif %}
+
+{% endblock %}
