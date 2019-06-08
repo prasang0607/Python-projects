@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% if got == False %}
+    <div class="jumbotron">
+        <h3 style="font-size: 40px">Sorry, no data found!</h3>
+    </div>
+{% endif %}
+
+{% if got == True %}
+    <p style="text-align: center; font-size: 25px; margin-top: 40px">Weather Forecast for <span class="font-weight-bold">{{ data[0] }}</span></p>
+
+    <table class="table table-striped" style="margin-bottom: 200px">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">Period</th>
+                <th scope="col">Temperature</th>
+                <th scope="col">Description</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            {% for i in range(data[1]|length) %}
+            <tr>
+                <td class="font-weight-bold">{{ data[1][i] }}</td>
+                <td>{{ data[2][i] }}</td>
+                <td>{{ data[3][i] }}</td>
+            </tr>
+            {% endfor %}
+
+        </tbody>
+    </table>
+{% endif %}
+
+{% endblock %}
