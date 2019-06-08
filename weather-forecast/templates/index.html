@@ -1,11 +1,11 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <div class="jumbotron shadow-sm">
+    <div class="jumbotron shadow-sm" style="margin-bottom: 200px">
         <p><span  class="font-weight-bold">Note:</span> currently, only cities of USA are supported.</p>
         <hr>
         <form action="{{ url_for('display_forecast') }}">
-            <label for="city_name" style="font-size: 40px">Please enter a city:</label>
+            <label for="city_name" style="font-size: 35px">Please enter a city:</label>
             <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" name="city_name">
             <br>
             <input type="submit" class="btn btn-outline-secondary" value="Get Forecast!">

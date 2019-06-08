@@ -5,7 +5,7 @@ from bs4 import BeautifulSoup
 
 def get_coordinates(city):
     key = '<YOUR_API_KEY>'
-    url = f"https://maps.googleapis.com/maps/api/place/textsearch/json?key={key}&query={city}"
+    url = "https://maps.googleapis.com/maps/api/place/textsearch/json?key={}&query={}".format(key, city)
     # print(url, end='\n')
     raw_data = requests.get(url)
     json_data = json.loads(raw_data.text)
@@ -30,7 +30,7 @@ def weather_data(city):
     address, lat, lng = coordinates
 
     try:
-        page = requests.get(f"https://forecast.weather.gov/MapClick.php?lat={lat}&lon={lng}")
+        page = requests.get("https://forecast.weather.gov/MapClick.php?lat={}&lon={}".format(lat, lng))
         soup = BeautifulSoup(page.text.replace('<br>', ' '), "lxml")
 
         items = soup.find_all('div', class_='tombstone-container')
