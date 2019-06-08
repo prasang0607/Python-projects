@@ -4,7 +4,7 @@ from bs4 import BeautifulSoup
 
 
 def get_coordinates(city):
-    key = 'AIzaSyAsWEvR3pTJUoQr5XJgdMfKEf1g0Zcn5oc'
+    key = '<YOUR_API_KEY>'
     url = f"https://maps.googleapis.com/maps/api/place/textsearch/json?key={key}&query={city}"
     # print(url, end='\n')
     raw_data = requests.get(url)
