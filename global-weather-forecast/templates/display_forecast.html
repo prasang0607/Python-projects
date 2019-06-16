@@ -1,0 +1,35 @@
+{% extends 'base.html' %} {% block welcome %} {% endblock %} {% block content %} {% if got == False %}
+<div class="jumbotron">
+    <h3 style="font-size: 40px">Sorry, no data found!</h3>
+</div>
+{% endif %} {% if got %}
+
+<p style="text-align: center; font-size: 25px;">Weather Forecast for <span class="font-weight-bold">{{ location }}</span></p>
+
+<table class="table table-striped" style="margin-bottom: 200px">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">Period</th>
+            <th scope="col">Temperature</th>
+            <th scope="col">Description</th>
+        </tr>
+    </thead>
+    <tbody>
+
+        <tr>
+            <td class="font-weight-bold align-middle">{{ current_data[0] }}</td>
+            <td class="align-middle">{{ current_data[1] }}</td>
+            <td>{{ current_data[2] }} <img src="{{ current_data[3] }}" alt=""></td>
+        </tr>
+
+        {% for period,temp,desc,imgsrc in forecast_data %}
+        <tr>
+            <td class="font-weight-bold align-middle">{{ period }}</td>
+            <td class="align-middle">Max: {{ temp[0] }}<br>Min: {{ temp[1] }}</td>
+            <td>{{ desc }} <img src="{{ imgsrc }}" alt=""></td>
+        </tr>
+        {% endfor %}
+
+    </tbody>
+</table>
+{% endif %} {% endblock %}
